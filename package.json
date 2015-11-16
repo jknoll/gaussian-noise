@@ -1,0 +1,9 @@
+{
+	"name": "gaussian-noise",
+	"version": "0.0.1",
+	"description": "Add gaussian noise to the magnitude of a Google Data Labs Earth data file",
+	"dependencies": {
+		"underscore": "~1.8.3",
+		"randgen": "~0.1.0"
+	}
+}
