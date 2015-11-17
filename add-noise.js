@@ -18,7 +18,7 @@ var triples = object[0][1];
 var mean = parseFloat(process.argv[3]);
 var standard_deviation = parseFloat(process.argv[4]);
 
-function scale(pairs)
+function scale_magnitude(pairs)
 {
   var scaled = [];
 
@@ -31,18 +31,21 @@ function scale(pairs)
   return scaled;
 }
 
-function scale_triples(triples, mean, standard_deviation) {
-  // Extract every third value, which leaves the latitude and longitude but
-  // takes the magnitude.
-  var magnitudes = triples.filter(function(_,i){ return (i+1)%3 == 0});
-  var scaling_factors = randgen.rvnorm(magnitudes.length, mean, standard_deviation);
-  var pairs = _.zip(magnitudes, scaling_factors);
-
-  var scaled = scale(pairs);
+function scale_list(triples, pairs) {
+  var scaled = scale_magnitude(pairs);
   for (var i=2;i<triples.length;i+=3) {
     triples[i] = scaled[(i-2)/3];
   }
 }
 
-triples = scale_triples(triples, mean, standard_deviation);
+function scale(triples, mean, standard_deviation) {
+  // Extract every third value, which leaves the latitude and longitude but
+  // takes the magnitude.
+  var magnitudes = triples.filter(function(_,i){ return (i+1)%3 == 0});
+  var scaling_factors = randgen.rvnorm(magnitudes.length, mean, standard_deviation);
+  var pairs = _.zip(magnitudes, scaling_factors);
+  return scale_list(triples, pairs);
+}
+
+triples = scale(triples, mean, standard_deviation);
 console.log(object);
