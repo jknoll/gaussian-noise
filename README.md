@@ -21,4 +21,5 @@ The resulting JSON is written to stdout.
 ```
 Add gaussian noise to a Google Data Arts globe input datafile by scaling magnitudes.
 Usage: node add-noise.js [inputfile] [mean] [standard deviation]")
+Example: node add-noise.js population909500.json 0.5 0.25
 ```
