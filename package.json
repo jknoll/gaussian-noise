@@ -6,5 +6,8 @@
 		"underscore": "~1.8.3",
 		"randgen": "~0.1.0",
 		"tape": "~4.0.0"
+	},
+	"scripts": {
+		"test": "node tests/tests.js"
 	}
 }
