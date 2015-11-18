@@ -1,5 +1,7 @@
-Gaussian Noise
+WebGL Globe Gaussian Noise
 ==============
+
+[![Build Status](https://travis-ci.org/jknoll/gaussian-noise.svg?branch=master)](https://travis-ci.org/jknoll/gaussian-noise)
 
 The Google Data Arts team's [WebGL Globe](https://github.com/dataarts/webgl-globe) uses a JSON data format defined like this:
 
